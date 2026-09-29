@@ -1,0 +1,617 @@
+/* =========================================
+   MAIN PAGE
+   ========================================= */
+
+body {
+  font-family: Arial, sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 255, 120, 0.25),
+      rgba(120, 0, 255, 0.25)
+    ),
+    #121212;
+
+  background-size: 200% 200%;
+  animation: movingBackground 10s ease infinite;
+
+  background-attachment: fixed;
+
+  color: #f3eeee;
+
+  margin: 0;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   MOVING BACKGROUND
+   ========================================= */
+
+@keyframes movingBackground {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* =========================================
+   BACKGROUND TOGGLE BUTTON
+   ========================================= */
+
+#background-toggle {
+  padding: 8px 14px;
+
+  margin: 10px;
+
+  border: 2px solid #4db8ff;
+  border-radius: 8px;
+
+  background: #061a33;
+  color: #8fd8ff;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+#background-toggle:hover {
+  background: #0b3d66;
+  color: white;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================
+   BLUE BACKGROUND
+   ========================================= */
+
+body.blue-background {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(190, 235, 255, 0.65),
+      rgba(0, 20, 90, 0.85)
+    ),
+    #061426;
+
+  background-size: 200% 200%;
+
+  animation:
+    movingBackground
+    10s
+    ease
+    infinite;
+
+  background-attachment: fixed;
+}
+
+
+
+
+/* =========================================
+   LIGHT BLUE / RED GRADIENT BUTTON
+   ========================================= */
+
+#light-gradient-toggle {
+  padding: 8px 14px;
+  margin: 10px;
+
+  border: 2px solid #ff4d67;
+  border-radius: 8px;
+
+  background: linear-gradient(90deg, #0b67ff, #ff1744);
+  color: white;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.3s ease;
+}
+
+#light-gradient-toggle:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+/* Show the button only in light mode */
+body.dark-mode #light-gradient-toggle {
+  display: none;
+}
+
+/* =========================================
+   BLUE / RED GRADIENT BACKGROUND
+   ========================================= */
+
+body.blue-red-background {
+  background:
+    linear-gradient(135deg, #0057ff, #00a8ff, #ff1744, #b000ff);
+
+  background-size: 300% 300%;
+  animation: movingBackground 10s ease infinite;
+  background-attachment: fixed;
+}
+
+/* =========================================
+   KEEP PAGE CONTENT ABOVE BACKGROUND
+   ========================================= */
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+h1 {
+  color: rgb(197, 194, 194);
+  font-size: 38px;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+nav {
+  display: flex;
+  gap: 20px;
+
+  padding: 10px;
+
+  background-color: #000000;
+}
+
+nav a {
+  text-decoration: none;
+
+  color: rgb(139, 218, 255);
+
+  font-weight: bold;
+}
+
+
+/* =========================================
+   IMAGES
+   ========================================= */
+
+img {
+  max-width: 100%;
+
+  border-radius: 7%;
+
+  border: 4px solid #333333;
+}
+
+
+/* =========================================
+   PARAGRAPHS
+   ========================================= */
+
+p {
+  padding: 10px;
+
+  line-height: 18px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+main {
+  max-width: 700px;
+
+  margin: 10px auto;
+
+  padding: 20px;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+body.dark-mode {
+  background: #000000;
+
+  color: #32addd;
+}
+
+body.dark-mode h1 {
+  color: #2290c4;
+}
+
+
+/* =========================================
+   CLICK EFFECT CONTAINER
+   ========================================= */
+
+.ray-container {
+  position: fixed;
+
+  width: 1px;
+  height: 1px;
+
+  pointer-events: none;
+
+  z-index: 99999;
+}
+
+
+/* =========================================
+   CLICK RIPPLE
+   ========================================= */
+
+.click-ripple {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 35px;
+  height: 35px;
+
+  margin-left: -17.5px;
+  margin-top: -17.5px;
+
+  border-radius: 50%;
+
+  border: 3px solid #00ffff;
+
+  box-shadow:
+    0 0 8px #00ffff,
+    0 0 18px #00ff88,
+    0 0 35px #9900ff;
+
+  opacity: 0;
+
+  animation:
+    rippleExpand
+    1.2s
+    ease-out
+    forwards;
+}
+
+
+@keyframes rippleExpand {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      scale(0.1);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(8);
+  }
+}
+
+
+/* =========================================
+   CENTER LIGHT FLASH
+   ========================================= */
+
+.click-glow {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 45px;
+  height: 45px;
+
+  margin-left: -22.5px;
+  margin-top: -22.5px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+
+      #ffffff 0%,
+      #00ffff 15%,
+      #00ff66 30%,
+      #9900ff 55%,
+      transparent 75%
+    );
+
+  filter: blur(3px);
+
+  opacity: 0;
+
+  animation:
+    centerGlow
+    0.8s
+    ease-out
+    forwards;
+}
+
+
+@keyframes centerGlow {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      scale(0.2);
+  }
+
+  40% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(2.5);
+  }
+}
+
+
+/* =========================================
+   FLOWING LIGHT RAYS
+   ========================================= */
+
+.flow-ray {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: var(--length);
+
+  height: var(--width);
+
+  border-radius: 999px;
+
+  transform-origin: left center;
+
+  filter:
+    blur(1px)
+    drop-shadow(0 0 5px currentColor)
+    drop-shadow(0 0 12px currentColor);
+
+  opacity: 0;
+
+  animation:
+    rayFlow
+    1.8s
+    cubic-bezier(.15,.7,.2,1)
+    var(--delay)
+    forwards;
+}
+
+
+/* =========================================
+   RAY ANIMATION
+   ========================================= */
+
+@keyframes rayFlow {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      rotate(var(--angle))
+      translateX(0)
+      scaleX(0);
+  }
+
+  10% {
+    opacity: 1;
+
+    transform:
+      rotate(var(--angle))
+      translateX(5px)
+      scaleX(.25);
+  }
+
+  35% {
+    opacity: 1;
+
+    transform:
+      rotate(calc(var(--angle) + 8deg))
+      translateX(35px)
+      scaleX(.65);
+  }
+
+  65% {
+    opacity: .8;
+
+    transform:
+      rotate(calc(var(--angle) - 10deg))
+      translateX(120px)
+      scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      rotate(calc(var(--angle) + 18deg))
+      translateX(280px)
+      scaleX(1.4);
+  }
+}
+
+
+/* =========================================
+   GLOWING PARTICLES
+   ========================================= */
+
+.ray-particle {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 6px #00ffcc,
+    0 0 15px #00ffcc,
+    0 0 30px #9900ff;
+
+  animation:
+    particleFlow
+    1.5s
+    ease-out
+    forwards;
+}
+
+
+/* =========================================
+   PARTICLE ANIMATION
+   ========================================= */
+
+@keyframes particleFlow {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(0, 0)
+      scale(1.5);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(var(--x), var(--y))
+      scale(0);
+  }
+}
+
+/* =========================================
+   DARK BACKGROUND TOGGLE BUTTON
+   ========================================= */
+
+#dark-background-toggle {
+  display: none;
+
+  padding: 8px 14px;
+  margin: 10px;
+
+  border: 2px solid #315b8c;
+  border-radius: 8px;
+
+  background: #071a2f;
+  color: #8fc7ff;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+#dark-background-toggle:hover {
+  background: #0d3155;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Hide the normal background button while dark mode is active */
+body.dark-mode #background-toggle {
+  display: none;
+}
+
+/* Show the dark background button only in dark mode */
+body.dark-mode #dark-background-toggle {
+  display: inline-block;
+}
+
+/* =========================================
+   DARK BLUE BACKGROUND
+   ========================================= */
+
+body.dark-mode.dark-blue-background {
+  background:
+    linear-gradient(
+      135deg,
+      #061426,
+      #0b2340,
+      #071a30
+    );
+
+  background-size: 200% 200%;
+  animation: movingBackground 10s ease infinite;
+  background-attachment: fixed;
+}
+
+
+/* =========================================
+   SECRET TETRIS TAB
+   ========================================= */
+
+.secret-tetris-tab {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 4px 10px;
+  border: 2px solid #00ffff;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #006eff, #b000ff);
+  box-shadow:
+    0 0 6px rgba(0, 255, 255, 0.7),
+    0 0 12px rgba(176, 0, 255, 0.5);
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+.secret-tetris-tab:hover {
+  transform: scale(1.08);
+  filter: brightness(1.2);
+}

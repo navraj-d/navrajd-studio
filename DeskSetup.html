@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Work — Navraj.D</title>
+  <link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle">
+<label for="dark-mode-toggle">🌙 Dark mode</label>
+<button id="background-toggle">🌊 Blue Background</button>
+<button id="light-gradient-toggle">🔵🔴 Blue/Red Gradient</button>
+<button id="dark-background-toggle">🌌 Dark Blue Background</button>
+<header>
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="work.html">My Work</a>
+    <a href="DeskSetup.html">Desk Setup</a>
+    </nav>
+</header>
+    <main>
+        <h1>Dream Desk Setup</h1>
+    <hr>
+    <p>My Dream Desk Setup</p>
+    <ul>
+        <li>A Gaming PC</li>
+        <li>3-40" moniters</li>
+        <li>airpods</li>
+        <li>Keyboard</li>
+        <li>Wireless Mouse</li>
+        <li>Speakers</li>
+        <li>Gaming chair</li>
+        <li>Miss Vickies Salt and Viniger chips</li>
+        <li>Sprite and fanta in my mini fridge</li>
+    </ul></main>
+    
+
+<script>
+/* =========================================
+   CR7 SECRET GAME TABS
+   Type CR7 anywhere to show/hide Chess.
+   ========================================= */
+(() => {
+  const tabId = "cr7-chess-tab";
+  const target = "chess.html";
+  let typed = "";
+
+  function ensureChessTab() {
+    let tab = document.getElementById(tabId);
+    if (tab) return tab;
+
+    const nav = document.querySelector("header nav");
+    if (!nav) return null;
+
+    tab = document.createElement("a");
+    tab.id = tabId;
+    tab.href = target;
+    tab.textContent = "♟ Chess";
+    tab.style.display = "none";
+    tab.dataset.cr7SecretTab = "true";
+    nav.appendChild(tab);
+    return tab;
+  }
+
+  function toggleChessTab() {
+    const tab = ensureChessTab();
+    if (!tab) return;
+    tab.style.display = tab.style.display === "none" ? "" : "none";
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key.length !== 1) return;
+    typed = (typed + event.key).slice(-3).toUpperCase();
+    if (typed === "CR7") {
+      toggleChessTab();
+      typed = "";
+    }
+  });
+
+  // Keep the tab visible while on the Chess page.
+  if (location.pathname.toLowerCase().endsWith("/chess.html") ||
+      location.pathname.toLowerCase().endsWith("chess.html")) {
+    const tab = ensureChessTab();
+    if (tab) tab.style.display = "";
+  }
+})();
+</script>
+
+</body>
+<footer>
+    <p>&copy; 2026 Navraj.D </p>
+  </footer>
+</html>

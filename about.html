@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me — Navraj</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+ <input type="checkbox" id="dark-mode-toggle">
+<label for="dark-mode-toggle">🌙 Dark mode</label>
+
+<button id="background-toggle">
+    🌊 Blue Background
+</button>
+<button id="light-gradient-toggle">🔵🔴 Blue/Red Gradient</button>
+<button id="dark-background-toggle">🌌 Dark Blue Background</button>
+  <header>
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="work.html">My Work</a>
+    <a href="DeskSetup.html">Desk Setup</a>
+    </nav>
+</header>
+  <h1>About Me</h1>
+
+  <h2 id="bio-heading">About Me</h2>
+  <p>My name is Navraj  and I am currently a student attending Sutherland Secondary. I like to play soccer, flag football, and I like building things in my backyard. My first year of highschool went well however im going to make this year better.</p>
+<hr>
+  <h2>A Few Things I'm Into</h2>
+  <ul>
+    <li>Soccer</li>
+    <li>Video games</li>
+    <li>Lego</li>
+  </ul>
+  <hr>
+  <main> 
+     <h2>Quick Facts</h2>
+    <ol>
+      <li>Favourite subject: My favorite subject is Math.<br></li>
+      <li>A skill I'm proud of: I am proud of my mathamatic skills.<br></li>
+      <li>What's one hobby or activity you spend a lot of time on: I have spent a lot of time playing Soccer.<br></li>
+      <li>What's your favourite video game, show, or movie right now: My favorite game is FC 26.<br></li>
+      <li>Do you play any sports or an instrument:I play soccer and flag football, however I don't play any insturments.<br></li>
+      <li>What's a skill you're actually proud of: I am proud of my critical thinking skills.<br></li>
+      <li>What's your favourite food: My favorite food is Sushi.<br><li>
+      If you could have any superpower, what would it be: If I had any super power it would be to master anything but, I can only use it once a month.<br></li>
+      <li>What's a goal you have for this course: A goal I have for this course is to be able to code a game on my own.<br></li>
+      <li>What's something you're good at that has nothing to do with school:I am good at making things with wood and other materials.<br></li>
+      <li>If you could visit anywhere in the world, where would you go: If I were to visit anywhere i would go to iceland for 1 month and see everything I could there.<br></li>
+      <li>What's your favourite season, and why: My favorite season is spring because, its hot but not extreme heat and it still rains often.<br></li>
+      <li>Cats, dogs, or something else? (or no pets at all): Team Dog.</li>
+      <li>Morning person or night owl: Im niether<br></li>
+      <li>What's a game or show you'd recommend to literally anyone: I would recommend Ted Lasso to anyone who likes TV Series.<br></li>
+      <li>What do you want to build or make by the end of this course: I want to make a video game at the end of this course.<br></li>
+    </p></main>
+  
+
+   
+
+
+
+<script>
+/* =========================================
+   CR7 SECRET GAME TABS
+   Type CR7 anywhere to show/hide Chess.
+   ========================================= */
+(() => {
+  const tabId = "cr7-chess-tab";
+  const target = "chess.html";
+  let typed = "";
+
+  function ensureChessTab() {
+    let tab = document.getElementById(tabId);
+    if (tab) return tab;
+
+    const nav = document.querySelector("header nav");
+    if (!nav) return null;
+
+    tab = document.createElement("a");
+    tab.id = tabId;
+    tab.href = target;
+    tab.textContent = "♟ Chess";
+    tab.style.display = "none";
+    tab.dataset.cr7SecretTab = "true";
+    nav.appendChild(tab);
+    return tab;
+  }
+
+  function toggleChessTab() {
+    const tab = ensureChessTab();
+    if (!tab) return;
+    tab.style.display = tab.style.display === "none" ? "" : "none";
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key.length !== 1) return;
+    typed = (typed + event.key).slice(-3).toUpperCase();
+    if (typed === "CR7") {
+      toggleChessTab();
+      typed = "";
+    }
+  });
+
+  // Keep the tab visible while on the Chess page.
+  if (location.pathname.toLowerCase().endsWith("/chess.html") ||
+      location.pathname.toLowerCase().endsWith("chess.html")) {
+    const tab = ensureChessTab();
+    if (tab) tab.style.display = "";
+  }
+})();
+</script>
+
+</body>
+ <footer>
+    <p>&copy; 2026 Navraj.D </p>
+  </footer>
+</html>
